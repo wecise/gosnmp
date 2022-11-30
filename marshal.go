@@ -805,7 +805,11 @@ func marshalVarbind(pdu *SnmpPDU) ([]byte, error) {
 		if err != nil {
 			return nil, fmt.Errorf("unable to marshal PDU length: %w", err)
 		}
-		tmpBuf.WriteByte(byte(pdu.Type))
+		if pdu.Type == HexString {
+			tmpBuf.WriteByte(byte(OctetString))
+		} else {
+			tmpBuf.WriteByte(byte(pdu.Type))	
+		}
 		tmpBuf.Write(length)
 		tmpBuf.Write(octetStringBytes)
 
