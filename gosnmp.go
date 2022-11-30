@@ -228,7 +228,7 @@ const (
 	NoSuchObject      Asn1BER = 0x80
 	NoSuchInstance    Asn1BER = 0x81
 	EndOfMibView      Asn1BER = 0x82
-	HexString         Asn1BER = 0x04
+	HexString         Asn1BER = 0x89
 )
 
 //go:generate stringer -type SNMPError
